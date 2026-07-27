@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vibely Admin Dashboard</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdadc",
+                    "on-primary-fixed": "#120068",
+                    "primary": "#4129e7",
+                    "on-surface-variant": "#464556",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#777588",
+                    "on-tertiary-fixed": "#191c1e",
+                    "primary-fixed": "#e3dfff",
+                    "secondary": "#ad2d47",
+                    "outline-variant": "#c7c4d9",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#c4c0ff",
+                    "secondary-container": "#fd6a80",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f0f0f7",
+                    "on-primary-fixed-variant": "#340edd",
+                    "on-background": "#1a1c20",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#44474a",
+                    "tertiary": "#505355",
+                    "surface-variant": "#e2e2e9",
+                    "on-surface": "#1a1c20",
+                    "surface": "#f9f9ff",
+                    "tertiary-fixed-dim": "#c5c6c9",
+                    "surface-container-highest": "#e2e2e9",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-surface": "#2e3036",
+                    "on-error": "#ffffff",
+                    "primary-container": "#5b4bff",
+                    "tertiary-container": "#686b6e",
+                    "on-primary-container": "#ede9ff",
+                    "on-secondary-fixed-variant": "#8c1231",
+                    "background": "#f9f9ff",
+                    "tertiary-fixed": "#e1e2e5",
+                    "secondary-fixed-dim": "#ffb2b9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ebecef",
+                    "surface-container": "#ededf4",
+                    "on-secondary-fixed": "#400010",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface-tint": "#4e3bf3",
+                    "on-secondary-container": "#6c0020",
+                    "surface-dim": "#d9d9e0",
+                    "surface-container-high": "#e8e7ef",
+                    "surface-container-low": "#f3f3fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .chart-gradient {
+            background: linear-gradient(180deg, rgba(91, 75, 255, 0.1) 0%, rgba(91, 75, 255, 0) 100%);
+        }
+        ::-webkit-scrollbar { display: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary/20">
+<!-- Top Navigation Shell -->
+<header class="bg-white/70 dark:bg-surface/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-3">
+<button class="active:scale-95 transition-transform duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-size: 28px;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tight text-primary dark:text-primary-fixed">Vibely</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">search</span>
+<div class="w-10 h-10 rounded-full border-2 border-primary/20 overflow-hidden active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female technology executive with a friendly expression. She has short, styled hair and is wearing a sleek, modern blazer. The background is a soft-focus office interior with minimalist decor and warm, natural sunlight coming from a window. The overall aesthetic is clean, professional, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOGuqCxTI1KmkdkcbK6E2wef61qGQvGqsiWk5BHB_mClR3ZoxtEtVnHgSsCrleKSNEQeAj4Mr53Y9jr6_eBKUxtCsZApburpYV7MJ1deAMDCljOK9gByYUwTv86hN-QipXV9hRZbf30sjNaICzx0d4ktXs9m989WA9-BlbOz1VJYxobqpJR9163ztoUyY9jOk5OUtQtf5P71oSPDk4Z7Xzb7LMdpse5ZLmAa2aAVtsyKf6dFMqU6yoEPD0YqGL2lfQtj6GYnQHwvid"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile pt-6 pb-32 space-y-8">
+<!-- Platform Health Glass Card -->
+<section class="relative overflow-hidden rounded-[24px] glass-card p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-12 -bottom-12 w-48 h-48 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">System Status</p>
+<h2 class="font-headline-md text-headline-md mt-1">Platform Healthy</h2>
+</div>
+<div class="flex items-center gap-2 bg-green-500/10 text-green-600 px-3 py-1 rounded-full">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm">Operational</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="p-4 bg-white/40 rounded-xl border border-white/40">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Uptime</p>
+<p class="font-headline-sm text-headline-sm text-primary">99.98%</p>
+</div>
+<div class="p-4 bg-white/40 rounded-xl border border-white/40">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Latency</p>
+<p class="font-headline-sm text-headline-sm text-secondary">42ms</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Active Users -->
+<div class="bg-white p-6 rounded-[24px] shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-weight="fill">group</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Active Users</p>
+<h3 class="font-display-lg-mobile text-display-lg-mobile mt-1">12.8k</h3>
+</div>
+<div class="mt-4 flex items-center text-green-500 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+<span>+14.2%</span>
+</div>
+</div>
+<!-- Revenue -->
+<div class="bg-white p-6 rounded-[24px] shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">payments</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Revenue</p>
+<h3 class="font-display-lg-mobile text-display-lg-mobile mt-1">$84k</h3>
+</div>
+<div class="mt-4 flex items-center text-green-500 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+<span>+8.4%</span>
+</div>
+</div>
+<!-- Performance Chart Card -->
+<div class="col-span-2 bg-white p-6 rounded-[24px] shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm">User Growth</h3>
+<select class="bg-surface-container-low border-none rounded-full px-4 py-1 font-label-sm text-label-sm outline-none focus:ring-2 ring-primary/20">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="h-32 w-full relative flex items-end gap-2 px-1">
+<!-- Faux Line Chart Visualization -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 400 100">
+<defs>
+<lineargradient id="lineGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#5B4BFF" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#5B4BFF" stop-opacity="0.1"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,20" fill="none" stroke="#5B4BFF" stroke-linecap="round" stroke-width="3"></path>
+<path d="M0,80 Q50,60 100,70 T200,30 T300,50 T400,20 L400,100 L0,100 Z" fill="url(#lineGrad)" opacity="0.1"></path>
+<circle cx="400" cy="20" fill="#5B4BFF" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4 font-label-sm text-label-sm text-outline">
+<span>Mon</span>
+<span>Wed</span>
+<span>Fri</span>
+<span>Sun</span>
+</div>
+</div>
+</section>
+<!-- Progress Interaction Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm">Platform Metrics</h3>
+<button class="text-primary font-label-md text-label-md">Details</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-6 rounded-[24px] shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col items-center text-center">
+<div class="relative w-20 h-20 mb-3">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="40" cy="40" fill="transparent" r="32" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="40" cy="40" fill="transparent" r="32" stroke="currentColor" stroke-dasharray="201" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-label-md text-label-md font-bold">70%</div>
+</div>
+<p class="font-label-md text-label-md">Storage Used</p>
+</div>
+<div class="bg-white p-6 rounded-[24px] shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col items-center text-center">
+<div class="relative w-20 h-20 mb-3">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="40" cy="40" fill="transparent" r="32" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="40" cy="40" fill="transparent" r="32" stroke="currentColor" stroke-dasharray="201" stroke-dashoffset="140" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-label-md text-label-md font-bold">30%</div>
+</div>
+<p class="font-label-md text-label-md">API Limit</p>
+</div>
+</div>
+</section>
+<!-- Recent Reports List -->
+<section class="space-y-4">
+<h3 class="font-headline-sm text-headline-sm">Recent Reports</h3>
+<div class="space-y-3">
+<!-- Report 1 -->
+<div class="bg-white p-4 rounded-2xl flex items-center justify-between border border-transparent active:border-primary/20 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-error">report_problem</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-semibold">Spam Account</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2 mins ago • ID: 8219</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container rounded-full font-label-sm text-label-sm">High</span>
+</div>
+<!-- Report 2 -->
+<div class="bg-white p-4 rounded-2xl flex items-center justify-between border border-transparent active:border-primary/20 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">contact_support</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-semibold">User Support</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15 mins ago • ID: 8218</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label-sm text-label-sm">Medium</span>
+</div>
+<!-- Report 3 -->
+<div class="bg-white p-4 rounded-2xl flex items-center justify-between border border-transparent active:border-primary/20 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">help_center</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-semibold">Feedback</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1 hour ago • ID: 8217</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-low text-outline rounded-full font-label-sm text-label-sm">Low</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Bar Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 py-3 pb-safe bg-white/70 dark:bg-surface/70 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] z-50">
+<a class="flex items-center justify-center bg-primary-container/20 dark:bg-primary-container/40 text-primary dark:text-primary-fixed rounded-full p-3 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction: Update uptime pulse rate
+        document.addEventListener('DOMContentLoaded', () => {
+            const pulse = document.querySelector('.animate-pulse');
+            if (pulse) {
+                setInterval(() => {
+                    pulse.style.opacity = '0.4';
+                    setTimeout(() => { pulse.style.opacity = '1'; }, 400);
+                }, 2000);
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vibely | Redefining Connection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdadc",
+                    "on-primary-fixed": "#120068",
+                    "primary": "#4129e7",
+                    "on-surface-variant": "#464556",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#777588",
+                    "on-tertiary-fixed": "#191c1e",
+                    "primary-fixed": "#e3dfff",
+                    "secondary": "#ad2d47",
+                    "outline-variant": "#c7c4d9",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#c4c0ff",
+                    "secondary-container": "#fd6a80",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f0f0f7",
+                    "on-primary-fixed-variant": "#340edd",
+                    "on-background": "#1a1c20",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#44474a",
+                    "tertiary": "#505355",
+                    "surface-variant": "#e2e2e9",
+                    "on-surface": "#1a1c20",
+                    "surface": "#f9f9ff",
+                    "tertiary-fixed-dim": "#c5c6c9",
+                    "surface-container-highest": "#e2e2e9",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-surface": "#2e3036",
+                    "on-error": "#ffffff",
+                    "primary-container": "#5b4bff",
+                    "tertiary-container": "#686b6e",
+                    "on-primary-container": "#ede9ff",
+                    "on-secondary-fixed-variant": "#8c1231",
+                    "background": "#f9f9ff",
+                    "tertiary-fixed": "#e1e2e5",
+                    "secondary-fixed-dim": "#ffb2b9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ebecef",
+                    "surface-container": "#ededf4",
+                    "on-secondary-fixed": "#400010",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface-tint": "#4e3bf3",
+                    "on-secondary-container": "#6c0020",
+                    "surface-dim": "#d9d9e0",
+                    "surface-container-high": "#e8e7ef",
+                    "surface-container-low": "#f3f3fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #f9f9ff;
+            color: #1a1c20;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(91, 75, 255, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(91, 75, 255, 0.05), transparent 40%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="docked full-width top-0 sticky z-50 bg-white/70 dark:bg-surface/70 backdrop-blur-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-2 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary text-3xl">menu</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tight text-primary dark:text-primary-fixed">Vibely</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10 active:scale-95 transition-transform duration-200">
+<img class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a young creative professional with a warm smile, set against a soft-focus studio background with warm, natural lighting. The aesthetic is clean, modern, and high-fidelity, reflecting a premium social network user profile. The color palette is composed of soft neutrals and gentle blue highlights to match the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzuDY2ERUNk2jLoghIvb7vOmCLJmLkuYoJZtljWBQfDuPPln1ozq7mLNEdnbrk0b6D69lSArBdLrrRdMR852wyB6lLtPUg-_U_QH8t1k4ZYi4qFwvCjBc9iYxE_-6Q8T4F8QNzH7A9NWrrUA9Qs0O4gqUQjsic3OIM5Nci5p0WFHY4aSsPkcv4CbXhrLKx-bzP7RL_2iC1ACrfIt_UagsHPke5IYumJJPwnd-_hgm04QEw4Lvb6RX3PWdojw0fd6SNTTzRLmij0s2V"/>
+</div>
+</div>
+</header>
+<main class="relative hero-gradient min-h-screen">
+<!-- Hero Section -->
+<section class="px-margin-mobile pt-12 pb-20 text-center">
+<div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full mb-8">
+<span class="text-primary font-label-sm text-label-sm">NEXT GEN SOCIAL</span>
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+<span class="text-primary font-label-sm text-label-sm">2026 EDITION</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-background mb-6 leading-[1.1]">
+                Create.<br/>Connect.<br/><span class="text-primary">Inspire.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[320px] mx-auto mb-10">
+                Experience social networking redefined for 2026. Built for creators, designed for humans.
+            </p>
+<div class="flex flex-col gap-4 px-4">
+<button class="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm-mobile py-5 rounded-[16px] shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                    Join the Vibe
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-transparent border border-outline-variant text-on-surface font-headline-sm text-headline-sm-mobile py-5 rounded-[16px] hover:bg-surface-variant/20 transition-colors">
+                    Explore Trends
+                </button>
+</div>
+</section>
+<!-- Bento Features Grid (Mobile Focused) -->
+<section class="px-margin-mobile pb-24 space-y-6">
+<h3 class="font-headline-md text-headline-md mb-8 text-center">The Future of Interaction</h3>
+<!-- Connection Card -->
+<div class="glass-card rounded-[24px] p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] animate-float">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container/20 flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm-mobile mb-2">Connection</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Deeply integrated social circles with neural-mapping to find your genuine tribe.</p>
+<div class="relative h-48 rounded-xl overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover" data-alt="A stylized, high-fidelity 3D visualization of a social network graph where glowing nodes represent users. The nodes are connected by ethereal, flowing lines of soft purple and blue light. The background is a clean, minimalist white space with subtle glassmorphic elements. The lighting is soft and diffused, creating a calm and sophisticated premium technological atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA7092rijs_9fznzRC9qJxR_DdIBmMDAH3GSTs2TDtyWMpj7zq05gkiSZ2TMsweqMxIWeuXkhEXe_UDHIANTJzF72ivQWXCJAZYAhQVr6OyJteXdctBrjI9AzjE67Zn3g1ZRzaQlJmF8ao9sXMJp1FDmHO6p3nfUjKwCT9SLZEsWeuP6EaYhasM_uJU-zySQgGAFPs-vwXycmbw3z5CAsBBEWifqKhVGd8QQFd1aq8QQc-dRicxe2-VUR1p2hbxzkKNqiOHgB4dYa1"/>
+</div>
+</div>
+<!-- Inspiration Card -->
+<div class="glass-card rounded-[24px] p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]" style="animation-delay: 1s;">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm-mobile mb-2">Inspiration</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">AI-curated feeds that spark creativity rather than just harvesting attention.</p>
+<div class="grid grid-cols-2 gap-3">
+<div class="h-32 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist close-up shot of an elegant architectural structure featuring clean lines and soft shadows. The color palette is dominated by pure whites and subtle periwinkle blues, evoking a sense of calm and high-end design. Soft, natural morning light spills across the surfaces, highlighting the smooth textures and premium aesthetic of the space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUy22tUfkodtlZwNrVrIEwnDUuCsH2wGnPIZfqiQvVEn0JKEuwEVQbdim6XFeCBj4F7WMhWXi34NBLIui_B5ckARoU6QnQ8ne33qV2oFI_WC04Xd6Kb_4QrVQeJl1IgIWzWQKhJqpvBRZu9UESbxRRCCnJLkdTN-0I92VbcVu7tDc0hDjqAp7DqOPiY-AshdkSW38om0FHJAT81cNlP1TQJkhcccFYnz3cFOmu1wLbjkOM96Cr86Ijbt01WzuAECq1jkhg9jv9mSUb"/>
+</div>
+<div class="h-32 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An artistic, high-fidelity macro photograph of iridescent fabric or liquid reflecting a spectrum of soft pastel colors. The focus is sharp on the center, with a beautiful bokeh effect blurring the edges. The visual is designed to inspire creativity and sophistication, utilizing a palette of silver, lavender, and sky blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACvpB7ps_nMjAeOonrlwjWh8gLDS4MakWzFJT6RMXg2a0j5WInTwJAI4xHHZuIjrEfimDmgy7t2xEj3m1kGVOpVkYEOzX9aH5a32varla3YKVsU1ZFEhieqiJTX6kZxVCPKGzG654WJm2cRQIweB6yFW9MGXOtMAYLcrw--MIFh4d2F3tkiOMYoIqqJ6lBAesc60ZRZr-m8xKLTZqotR-NV65GaS-LY6BjlbkiLglswVMTRfdgLofM0aysIBKMHvojy0mkhGOcYuzf"/>
+</div>
+</div>
+</div>
+<!-- Creation Card -->
+<div class="bg-primary text-on-primary rounded-[24px] p-6 shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">brush</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm-mobile mb-2">Creation</h4>
+<p class="font-body-md text-body-md opacity-90 mb-4">Unleash your potential with high-fidelity creation tools that bridge the gap between thought and reality.</p>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute -left-10 -top-10 w-40 h-40 bg-on-primary-container/20 rounded-full blur-2xl"></div>
+</div>
+</section>
+<!-- Dynamic User Stats (Proof of Life) -->
+<section class="px-margin-mobile pb-24">
+<div class="bg-surface-container rounded-[32px] p-8 text-center border border-outline-variant/30">
+<div class="flex -space-x-3 justify-center mb-4">
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Small circular avatar of a stylish user with colorful hair, vibrant aesthetic, high-fidelity render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD77anpLB0kZEeOILpBGK1yhK7rvLZPGSLchIF_MZ5PfuZDYicAB0yQWzElveiwNWrLc591nMvC5inl6EWufDb1uqxgZhxF4iTi7wX1KfqB-4aA3zPzY3i675xiHq4DL9J4uxJYrqY8V3JJP_iKofFKJxUm3hF9CUeCglAJ9lEby6mdsLoFNaSgO5PS_sAlaYDhtKRrhLAAoR8SRT40vY3XkxrpwzZ0iK5akJqisaNiNdyUtWZWmX2ijgFIAxRnlfEJIKz7jehp3amr"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Small circular avatar of a smiling entrepreneur in a minimalist office setting, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFH9zpBItGlm_okTGPWUSxmGMOF2DpcALcOHvgfW7cGlrzE_url1t9XnY4d494Rb35Exc2lODILAU4fCbLSFrjMe5I5rcUBMZkzIaw5gyMDnuVswMCx_se_Ab1ZwrQ1bWbDPFL90_nfhw4mjGPRiE0aW83kGVnz7oe-hKbaddYmeAlYnFjDDHSSuu3N-s7uta7hpRs1WSeLwiBV4Yg17XQqLgFl1K4NDlRe9dyTaKQMbFzMvulHkMlPW2ABTR6NJkXhoVotOm4pNys"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Small circular avatar of a creative designer with glasses, soft studio lighting, high-end feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbXABTY8L5R3s6rxKXlV8dw0yiHAdFy7_mhiUogNMoQOrYMWoW8RQISynE1swxsarkv2KXYznaXRnyFztk3RDLc2hAOTztGbk3TYyF2D3_WdaugAnuYQWr51p6xWfMoJYa_vcTfbP6AfU6F2LvQPt-FcuOzMRcg-JnyS0ZMsHd7A50odBqPjZpAQqvJhTkfc52SsXJ1aXSDMAC2Gae0N9IzrtZhbI1nnXDTWhQ4WidCoMgm3sDFMMk-wPxDjxM1T6hTvfzwtFX8Y7l"/>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-[10px] border-2 border-white">+2M</div>
+</div>
+<p class="font-headline-md text-headline-md text-on-background mb-1">2,401,983</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Creators have already found their vibe.</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Shell) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 py-3 pb-safe bg-white/70 dark:bg-surface/70 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] z-50">
+<div class="flex items-center justify-center bg-primary-container/20 dark:bg-primary-container/40 text-primary dark:text-primary-fixed rounded-full p-3 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">search</span>
+</div>
+<div class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" style="font-size: 32px;">add_circle</span>
+</div>
+<div class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">person</span>
+</div>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.classList.add('opacity-80');
+            });
+            button.addEventListener('touchend', function() {
+                this.classList.remove('opacity-80');
+            });
+        });
+
+        // Simple scroll reveal effect
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize opacity for reveal
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
+        });
+        
+        // Initial check
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body></html>

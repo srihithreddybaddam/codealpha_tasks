@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vibely | Saved Bookmarks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdadc",
+                        "on-primary-fixed": "#120068",
+                        "primary": "#4129e7",
+                        "on-surface-variant": "#464556",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#777588",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-fixed": "#e3dfff",
+                        "secondary": "#ad2d47",
+                        "outline-variant": "#c7c4d9",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c4c0ff",
+                        "secondary-container": "#fd6a80",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f0f7",
+                        "on-primary-fixed-variant": "#340edd",
+                        "on-background": "#1a1c20",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "tertiary": "#505355",
+                        "surface-variant": "#e2e2e9",
+                        "on-surface": "#1a1c20",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed-dim": "#c5c6c9",
+                        "surface-container-highest": "#e2e2e9",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2e3036",
+                        "on-error": "#ffffff",
+                        "primary-container": "#5b4bff",
+                        "tertiary-container": "#686b6e",
+                        "on-primary-container": "#ede9ff",
+                        "on-secondary-fixed-variant": "#8c1231",
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#e1e2e5",
+                        "secondary-fixed-dim": "#ffb2b9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ebecef",
+                        "surface-container": "#ededf4",
+                        "on-secondary-fixed": "#400010",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-tint": "#4e3bf3",
+                        "on-secondary-container": "#6c0020",
+                        "surface-dim": "#d9d9e0",
+                        "surface-container-high": "#e8e7ef",
+                        "surface-container-low": "#f3f3fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "20px": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-white/70 dark:bg-surface/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-headline-sm text-headline-sm-mobile md:text-headline-sm text-primary">Saved Bookmarks</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="search">search</span>
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a stylish young professional with a warm smile, wearing a designer minimal outfit. The lighting is soft and natural, emphasizing clean skin and a polished appearance against a blurred high-end cafe interior. The aesthetic is modern, bright, and consistent with a luxury social media platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMUgythfpzn9JFRloSuJ2DyxyDZLZKDchbaw6VgggZlD4w504a_JxWrbwTi84iLPnMafhesXMVFEb6EQ2VZm_sFTRU2zv7wgD-0AlBZZmrQNWumr-YSktG0kgE_e2-cuPZN2j8sqif0a4PvOz9Qad-aMCgx3yXmogozzFpvDPvO9ZGOiQw6dAPpZ7CUZS_eFEMoG5UWyeZZyuDFZaI0Jhk6eMlKhSNcLsErDqi1PZVqF4frCrhFK_AiZiQtSzCxNBgN0H8caqwqL2m"/>
+</div>
+</div>
+</header>
+<main class="pb-24">
+<!-- Categories / Collections Scroller -->
+<div class="px-margin-mobile pt-6 pb-4 overflow-x-auto no-scrollbar flex gap-3">
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-lg shadow-primary/20 transition-all active:scale-95">All</button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-white text-on-surface-variant font-label-md text-label-md shadow-sm border border-outline-variant/30 transition-all active:scale-95 hover:bg-surface-container-low">Inspiration</button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-white text-on-surface-variant font-label-md text-label-md shadow-sm border border-outline-variant/30 transition-all active:scale-95 hover:bg-surface-container-low">Design</button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-white text-on-surface-variant font-label-md text-label-md shadow-sm border border-outline-variant/30 transition-all active:scale-95 hover:bg-surface-container-low">Music</button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-white text-on-surface-variant font-label-md text-label-md shadow-sm border border-outline-variant/30 transition-all active:scale-95 hover:bg-surface-container-low">Travel</button>
+<button class="flex-shrink-0 px-10 py-2.5 rounded-full bg-surface-container text-primary font-label-md text-label-md transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Featured Collections (Bento Style) -->
+<section class="px-margin-mobile mb-8">
+<div class="grid grid-cols-2 gap-4">
+<div class="relative rounded-20px overflow-hidden aspect-[4/5] shadow-md group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A highly aesthetic top-down view of a designer's workspace featuring a sleek laptop, a minimal ceramic coffee mug, and a single monstera leaf in a glass vase. The color palette is composed of soft beiges, warm whites, and deep forest greens, captured in soft morning sunlight. The overall mood is sophisticated and creatively inspiring for a high-end social networking application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUjS4iFE9DdfD-Nh0RXal1C3qtEa4V1gMJOw00bEMXZkN1nnzieiUAn-hEQJWAuppApog_F0Qm2HY-5lfNEtIuexwlysCnUoaHD_6sX2zfeNpADB6th9pXZmPYv4BYkfAyHo8OJ2Op_M3rIYeCid7KVAlWuiH2PwQr7D8gMvn8hIMVLIpEXkH7IXAid6G5jiX1UAybHxiUHPmVn1enyN7axlhkZeAIpGagVgKoA7JhL7d7T4zkfig5Tq0EqI5GXoPgOlQdX_bzU3ED"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<p class="font-label-sm text-label-sm uppercase tracking-wider opacity-80">Collection</p>
+<h3 class="font-headline-sm text-headline-sm-mobile">Inspiration</h3>
+</div>
+</div>
+<div class="grid grid-rows-2 gap-4">
+<div class="relative rounded-20px overflow-hidden shadow-md group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Minimalist architectural shot of a modern museum interior with sweeping white curves and dramatic shadows cast by high windows. The scene is bathed in bright, clinical light with a serene atmosphere. The style is ultra-modern and luxurious, perfectly capturing a high-fidelity aesthetic for a design-focused audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDsRqojud9u5yoqpQO1jBZ2OPfj3eZ8IR-OOS24AbW5q_QDXkgyQjo3jNDsI47Jfg1PPKmIUJx3c4cML6LY3glrN1yTHPMmQP7T4mZ1-1TxKh1MbA150eKJ7IoEk8zdw99feTGwpzgCxt-kX4G58JWFiEkhIq8xYAyBLWC_w7hdyew0wC0zWlrPKIUAl46FXJwnuknQ7iYYeaRzI_MPTjSyTHUkEDXljiRe85o0W0BxStuQl23Rf_E7u0AHILwJEFvR9r_m1nf61Dg"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md rounded-full px-2 py-1">
+<span class="text-white text-[10px] font-bold">128 Items</span>
+</div>
+<div class="absolute bottom-3 left-3 text-white">
+<h3 class="font-label-md text-label-md">Architecture</h3>
+</div>
+</div>
+<div class="relative rounded-20px overflow-hidden shadow-md group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A macro shot of vibrant pink and purple tropical flowers with delicate dew drops reflecting soft light. The background is a lush, soft-focus emerald green. The lighting is ethereal and bright, emphasizing high-end photography standards. This image exudes a sense of premium exclusivity and organic beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8E_bmrnYrclQ91zSJiaWDcoKRtzvwVacFTzNd7mhgWMxlTXKvJhV7Jrp3LvjXj_c2PTun27esZVtFdzj7M9sXr4GnzX3Hzr-49-gzcH09GICiX32rFld2AqNYLTEw28KwJry9U5zuPGxX8N_VyjvYqXq0gYp21xwyTqIaQjzXC3VTlaf6UYU88_cz8NDarkeiUdJItnid77R917WkSw8k0tjzsNeIKqV4LbOHxShE3CiyEzdUzKSe63W3Vh2V31kC5TC9l8FuIILE"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<h3 class="font-label-md text-label-md">Botanicals</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bookmarked Posts Grid -->
+<section class="px-margin-mobile">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-sm text-headline-sm-mobile text-on-background">Recent Saves</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full bg-surface-container-high text-primary" id="grid-toggle"><span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span></button>
+<button class="p-2 rounded-full bg-transparent text-on-surface-variant" id="list-toggle"><span class="material-symbols-outlined text-[20px]" data-icon="reorder">reorder</span></button>
+</div>
+</div>
+<div class="masonry-grid" id="bookmarks-container">
+<!-- Item 1 -->
+<div class="bg-white rounded-20px overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-all">
+<div class="relative aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="A moody, high-end interior of a luxury penthouse overlooking a neon-lit city at dusk. The room features velvet furniture in deep navy and gold accents. Soft, warm ambient lighting creates an exclusive and serene atmosphere. The visual style is polished, cinematic, and perfectly aligned with a premium social experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAgCR2scW5zGB6VZ566-0YujyBHQuJA0c6mHxhOo8Y4viMOjdtRLjzEWy-2YeLG-Va2Ms-2D0CtE7NMjM32LsrhFnylrmVkLqIscuRdtnP0fnHRvQT52fJzakDbopDPstrVo2bycmp0OzHmVDnN352tM3pnTasK4HLpDEexPoDZbPZ8uqO6KexkR9eenpXEH7MbbYDXxMXk5TK657yulgSNXplBveir3M_R5u5Px7ULjDy7qhprIdbjRUMGLKSt2hZAOEipVddwAE7"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">City Lights Mood</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Saved 2h ago</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white rounded-20px overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-all">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="Abstract art installation featuring large glowing glass spheres that shift colors between periwinkle and soft rose. The background is a clean, dark exhibition space. High-contrast lighting highlights the reflections on the glass surfaces. The style is futuristic and high-precision, embodying a forward-luxury startup aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgb0_v16o7S2x-TUyQH2fC7MQmY4rLvPaTulryFLGymUqZitWQFIlnd5O7JuRiem1BRS9_oCJU33n64fdHJJvJN7mXQF1dMtSGTuw1MLjXG2tumRpUU1-8Nu4W-vm5p0u3_Syrq4K66jOP8OK4iagtBtENd2khILcLZ4tHc-YH2pOuXo4rfZ67T8Lx3t5pHqjCzTx0kwUCI2eLzP1-Npy42nu8a_bIgceh6t_qTJuNp4uwJAGnUofJnKYZQmOkYwRMU9hdw8xEryQQ"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">Light Installations</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Saved 1d ago</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white rounded-20px overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-all">
+<div class="relative aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="Close-up of a high-end designer watch with a metallic silver face and a minimalist black leather strap, resting on a slab of white marble. Soft side lighting emphasizes the fine textures and metallic glint. The aesthetic is clean, expensive, and sophisticated, designed for a modern professional network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA_Stcm98ZsUZkzU0eDmFoOWqa4tv-WPEGU-7N1qwrVOK531Oig7QW1zMS_-wLzRkopYSDMOWKG2WGc9IjkxoPbnosCgh-uUCxj2mk2s1Yb0tgDnqC5QNVQgRDg61I2WOLuThztrXG75l6PiBSHudndnoXJLplZQi3BO0wynjkDnFZ_jKfrvrOyQdi3l0KiExw4T37bJZLUlhAGCe32NZTVh6_CjmSs2LXS9COj6awzYU-BBD9wI_W7Gnz-XFm79k9zFxM73sefpwT"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">Watch Design 2026</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Saved 3d ago</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white rounded-20px overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-all">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="A minimalist plate of gourmet food featuring vibrant edible flowers and precise micro-greens arranged on a dark, textured ceramic plate. The lighting is focused and dramatic, highlighting the organic textures and rich colors. The overall feel is one of exclusivity, craftsmanship, and modern luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWAsB4BU2ej6Np-XCo4gpzCs9U71MV1UFXofyi6nsy38RwxJSSKALwzbo5Um29iNWPav4H67_YYNX1jbsgPWd211gK2CW8IJ_MXeDPKRaZkZ2mht5FNgzgSq11U0bQLDoZiSINzaVMP4sUYgmlxLxzGsdkKdw8Z38BY_2wDWkk0Koj8gyR8qPafObAxmzc9iWqlHEd90WdOSeCoaxWA0ipYpPXkgFGDuwS3SLGD84NUobmGh-9nAWEG7Wf61oDc_6qJY3iQwEMs6dl"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">Gourmet Moments</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Saved 1w ago</p>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center px-8" id="empty-state">
+<div class="w-48 h-48 mb-6 relative">
+
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[64px] text-outline-variant/50" data-icon="bookmark_add">bookmark_add</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">No bookmarks yet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Start exploring and save the moments that inspire you to see them here.</p>
+<button class="mt-8 bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md active:scale-95 transition-transform shadow-lg shadow-primary/20">Explore Vibely</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 py-3 pb-safe bg-white/70 dark:bg-surface/70 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] z-50">
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</a>
+<!-- Bookmarks is a subset of person/profile usually, but highlighting it here for semantic alignment with the screen -->
+<a class="flex items-center justify-center bg-primary-container/20 dark:bg-primary-container/40 text-primary dark:text-primary-fixed rounded-full p-3 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction Logic
+        const gridBtn = document.getElementById('grid-toggle');
+        const listBtn = document.getElementById('list-toggle');
+        const container = document.getElementById('bookmarks-container');
+
+        gridBtn.addEventListener('click', () => {
+            container.classList.remove('flex', 'flex-col');
+            container.classList.add('masonry-grid');
+            gridBtn.classList.add('bg-surface-container-high', 'text-primary');
+            gridBtn.classList.remove('bg-transparent', 'text-on-surface-variant');
+            listBtn.classList.remove('bg-surface-container-high', 'text-primary');
+            listBtn.classList.add('bg-transparent', 'text-on-surface-variant');
+        });
+
+        listBtn.addEventListener('click', () => {
+            container.classList.remove('masonry-grid');
+            container.classList.add('flex', 'flex-col', 'gap-4');
+            listBtn.classList.add('bg-surface-container-high', 'text-primary');
+            listBtn.classList.remove('bg-transparent', 'text-on-surface-variant');
+            gridBtn.classList.remove('bg-surface-container-high', 'text-primary');
+            gridBtn.classList.add('bg-transparent', 'text-on-surface-variant');
+            
+            // Adjust card layouts for list view
+            document.querySelectorAll('#bookmarks-container > div').forEach(card => {
+                card.classList.add('flex', 'items-center', 'p-2');
+                const imgContainer = card.querySelector('.relative');
+                imgContainer.classList.remove('aspect-[3/4]', 'aspect-square');
+                imgContainer.classList.add('w-20', 'h-20', 'flex-shrink-0', 'rounded-xl', 'overflow-hidden');
+            });
+        });
+
+        // Demo logic to toggle empty state
+        window.toggleEmptyState = function() {
+            const container = document.getElementById('bookmarks-container');
+            const empty = document.getElementById('empty-state');
+            const sections = document.querySelectorAll('section');
+            
+            if (empty.classList.contains('hidden')) {
+                container.classList.add('hidden');
+                sections[0].classList.add('hidden'); // Hide collections
+                empty.classList.remove('hidden');
+            } else {
+                container.classList.remove('hidden');
+                sections[0].classList.remove('hidden');
+                empty.classList.add('hidden');
+            }
+        };
+
+        // Micro-interactions for bookmark toggle
+        document.querySelectorAll('button[data-icon="bookmark"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const icon = this.querySelector('.material-symbols-outlined');
+                const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                
+                if(isFilled) {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                    this.classList.remove('text-primary');
+                    this.classList.add('text-on-surface-variant');
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    this.classList.add('text-primary');
+                    this.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>

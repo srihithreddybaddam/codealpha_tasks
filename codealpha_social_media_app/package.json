@@ -1,0 +1,16 @@
+{
+  "name": "vibely-fullstack-app",
+  "version": "1.0.0",
+  "description": "Vibely - Production Ready Full-Stack Social Networking Web Application",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "start": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

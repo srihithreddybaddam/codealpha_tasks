@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vibely | Sign In</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdadc",
+                        "on-primary-fixed": "#120068",
+                        "primary": "#4129e7",
+                        "on-surface-variant": "#464556",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#777588",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-fixed": "#e3dfff",
+                        "secondary": "#ad2d47",
+                        "outline-variant": "#c7c4d9",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c4c0ff",
+                        "secondary-container": "#fd6a80",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f0f7",
+                        "on-primary-fixed-variant": "#340edd",
+                        "on-background": "#1a1c20",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "tertiary": "#505355",
+                        "surface-variant": "#e2e2e9",
+                        "on-surface": "#1a1c20",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed-dim": "#c5c6c9",
+                        "surface-container-highest": "#e2e2e9",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2e3036",
+                        "on-error": "#ffffff",
+                        "primary-container": "#5b4bff",
+                        "tertiary-container": "#686b6e",
+                        "on-primary-container": "#ede9ff",
+                        "on-secondary-fixed-variant": "#8c1231",
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#e1e2e5",
+                        "secondary-fixed-dim": "#ffb2b9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ebecef",
+                        "surface-container": "#ededf4",
+                        "on-secondary-fixed": "#400010",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-tint": "#4e3bf3",
+                        "on-secondary-container": "#6c0020",
+                        "surface-dim": "#d9d9e0",
+                        "surface-container-high": "#e8e7ef",
+                        "surface-container-low": "#f3f3fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "input": "20px",
+                        "button": "16px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-bg {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        body {
+            background-color: #f9f9ff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 40px) scale(1.1); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center p-margin-mobile">
+<!-- Ambient Background Elements -->
+<div class="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
+<div class="floating-blob bg-primary-container w-[300px] h-[300px] -top-20 -left-20"></div>
+<div class="floating-blob bg-secondary-container w-[250px] h-[250px] bottom-1/4 -right-10" style="animation-delay: -5s;"></div>
+<div class="floating-blob bg-primary w-[200px] h-[200px] top-1/2 -left-10" style="animation-delay: -10s;"></div>
+</div>
+<!-- Main Content Container -->
+<main class="w-full max-w-[440px] flex flex-col items-center">
+<!-- Logo Section -->
+<header class="mb-12 text-center animate-fade-in">
+<h1 class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tight text-primary">
+                Vibely
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                Sophisticated Social Networking
+            </p>
+</header>
+<!-- Login Form Card -->
+<section class="w-full glass-bg rounded-[32px] p-8 shadow-[0px_8px_30px_rgba(0,0,0,0.04)] border border-white/40">
+<form class="space-y-6" id="loginForm">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface px-1" for="email">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">
+                            mail
+                        </span>
+<input class="w-full h-[56px] pl-12 pr-4 bg-surface-container-low border-transparent focus:border-primary focus:ring-0 rounded-input text-body-md font-body-md transition-all duration-200 placeholder:text-outline/50" id="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">
+                            lock
+                        </span>
+<input class="w-full h-[56px] pl-12 pr-4 bg-surface-container-low border-transparent focus:border-primary focus:ring-0 rounded-input text-body-md font-body-md transition-all duration-200 placeholder:text-outline/50" id="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Sign In Button -->
+<button class="w-full h-[56px] bg-primary-container text-on-primary-container font-headline-sm text-headline-sm rounded-button shadow-lg shadow-primary/20 active:scale-[0.98] transition-all duration-200 mt-4 flex items-center justify-center gap-2" type="submit">
+                    Sign In
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="flex items-center my-8">
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+<span class="px-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">or continue with</span>
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+</div>
+<!-- Social Login Options -->
+<div class="flex justify-center gap-6">
+<button aria-label="Sign in with Apple" class="w-14 h-14 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-white transition-colors active:scale-90">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2.002-.156-3.312 1.09-3.91 1.09zM15.485 5.17c.831-1.002 1.389-2.39 1.234-3.77-1.183.052-2.61.793-3.461 1.79-.766.885-1.442 2.312-1.26 3.654 1.312.104 2.656-.676 3.487-1.674z"></path>
+</svg>
+</button>
+<button aria-label="Sign in with Google" class="w-14 h-14 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-white transition-colors active:scale-90">
+<svg class="w-6 h-6" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+</button>
+</div>
+</section>
+<!-- Secondary CTA -->
+<footer class="mt-8 animate-fade-in" style="animation-delay: 0.2s;">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                New to Vibely? 
+                <a class="text-primary font-bold hover:underline decoration-2 underline-offset-4 ml-1" href="#">
+                    Create Account
+                </a>
+</p>
+</footer>
+</main>
+<!-- Success Message (Hidden by default) -->
+<div class="fixed inset-0 z-[100] bg-white flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500" id="successOverlay">
+<div class="text-center space-y-6">
+<div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto scale-0 transition-transform duration-500" id="successIcon">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">Welcome back</h2>
+<p class="font-body-lg text-body-lg text-outline">Loading your exclusive feed...</p>
+</div>
+</div>
+<script>
+        // Form Handling Logic
+        const loginForm = document.getElementById('loginForm');
+        const successOverlay = document.getElementById('successOverlay');
+        const successIcon = document.getElementById('successIcon');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Visual Feedback
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            const originalContent = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span>';
+            
+            // Mock delay for authentication
+            setTimeout(() => {
+                successOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    successIcon.classList.remove('scale-0');
+                    successIcon.classList.add('scale-100');
+                }, 100);
+                
+                // Redirect mock
+                setTimeout(() => {
+                    // window.location.href = '/dashboard';
+                    alert('Authenticated! Navigating to dashboard...');
+                    location.reload();
+                }, 2500);
+            }, 1200);
+        });
+
+        // Add focus effect to card on input focus
+        const inputs = document.querySelectorAll('input');
+        const card = document.querySelector('.glass-bg');
+        
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                card.style.boxShadow = '0px 12px 40px rgba(91, 75, 255, 0.08)';
+                card.style.borderColor = 'rgba(91, 75, 255, 0.1)';
+            });
+            input.addEventListener('blur', () => {
+                card.style.boxShadow = '0px 8px 30px rgba(0,0,0,0.04)';
+                card.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            });
+        });
+
+        // Fade-in animation helper
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.animate-fade-in').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body></html>

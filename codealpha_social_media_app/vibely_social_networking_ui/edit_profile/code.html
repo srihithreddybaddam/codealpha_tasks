@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Edit Profile | Vibely</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdadc",
+                    "on-primary-fixed": "#120068",
+                    "primary": "#4129e7",
+                    "on-surface-variant": "#464556",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#777588",
+                    "on-tertiary-fixed": "#191c1e",
+                    "primary-fixed": "#e3dfff",
+                    "secondary": "#ad2d47",
+                    "outline-variant": "#c7c4d9",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#c4c0ff",
+                    "secondary-container": "#fd6a80",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f0f0f7",
+                    "on-primary-fixed-variant": "#340edd",
+                    "on-background": "#1a1c20",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#44474a",
+                    "tertiary": "#505355",
+                    "surface-variant": "#e2e2e9",
+                    "on-surface": "#1a1c20",
+                    "surface": "#f9f9ff",
+                    "tertiary-fixed-dim": "#c5c6c9",
+                    "surface-container-highest": "#e2e2e9",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-surface": "#2e3036",
+                    "on-error": "#ffffff",
+                    "primary-container": "#5b4bff",
+                    "tertiary-container": "#686b6e",
+                    "on-primary-container": "#ede9ff",
+                    "on-secondary-fixed-variant": "#8c1231",
+                    "background": "#f9f9ff",
+                    "tertiary-fixed": "#e1e2e5",
+                    "secondary-fixed-dim": "#ffb2b9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ebecef",
+                    "surface-container": "#ededf4",
+                    "on-secondary-fixed": "#400010",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface-tint": "#4e3bf3",
+                    "on-secondary-container": "#6c0020",
+                    "surface-dim": "#d9d9e0",
+                    "surface-container-high": "#e8e7ef",
+                    "surface-container-low": "#f3f3fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "20px": "20px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        body {
+            background-color: #f9f9ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #5B4BFF;
+        }
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #5B4BFF;
+            background-color: #5B4BFF;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #5B4BFF;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- Top AppBar (Sticky) -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-panel shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between px-margin-mobile py-4 max-w-container-max mx-auto">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm-mobile text-on-surface font-bold">Edit Profile</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="pt-24 pb-32 px-margin-mobile max-w-md mx-auto min-h-screen">
+<!-- Profile Photo Section -->
+<section class="flex flex-col items-center mb-10">
+<div class="relative group">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A premium close-up studio portrait of a stylish young individual with a serene expression, illuminated by soft, directional lighting that creates elegant highlights. The aesthetic is clean and modern, following a high-end luxury brand feel with a soft, minimalist background and professional skin retouching, aligning with the Vibely app's sophisticated visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2nF0fxzIwNq5_4-A5G6exQZQ_-4iO_qg6V9gnuSRMGz2hxNDQsm7UpbGhdO-2mMNYMvrjsK-GG8OZZCDu9M7VoH1JzLKwLIA0D84vNoCJ8jjRYuy2XLig66LCzvtyIxPfmaTOrOdYBqejin1TR_X9jtSrKmhXuUdk1qZzByIyQCbEkF4CAHosnQ6e-jiOMTIvULvcpbMg7Qkmvb48aL_RoqeLcUl8IxoCK-QWYtZqDel2IfcWMsVTKsp1W_riLcyaPQjklQJSFsNz"/>
+</div>
+<button aria-label="Change profile picture" class="absolute bottom-1 right-1 w-10 h-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform duration-150 border-2 border-white">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<p class="mt-4 font-label-md text-primary font-semibold">Change Profile Picture</p>
+</section>
+<!-- Edit Form -->
+<form class="space-y-6">
+<!-- Full Name Field -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1" for="full-name">Full Name</label>
+<div class="relative">
+<input class="w-full h-14 px-4 bg-white rounded-20px border-transparent border-2 focus:border-primary-container focus:ring-0 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all" id="full-name" placeholder="Enter your full name" type="text" value="Jordan Rivers"/>
+</div>
+</div>
+<!-- Bio Textarea -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1" for="bio">Bio</label>
+<textarea class="w-full p-4 bg-white rounded-20px border-transparent border-2 focus:border-primary-container focus:ring-0 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all resize-none" id="bio" placeholder="Tell us about yourself..." rows="4">Digital artist &amp; curator exploring the intersection of light and technology. Based in the heart of Tokyo's creative district. ✨</textarea>
+<div class="flex justify-end px-1">
+<span class="text-[10px] font-label-sm text-outline">128/250</span>
+</div>
+</div>
+<!-- Link Field -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1" for="link">Website Link</label>
+<div class="relative flex items-center">
+<div class="absolute left-4 text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="link">link</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-white rounded-20px border-transparent border-2 focus:border-primary-container focus:ring-0 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all" id="link" placeholder="Your website or portfolio" type="url" value="vibely.io/jordan"/>
+</div>
+</div>
+<!-- Privacy Settings Section -->
+<div class="pt-6 space-y-4">
+<h2 class="font-label-md text-outline px-1 uppercase tracking-wider text-[10px] font-bold">Privacy Settings</h2>
+<div class="bg-white rounded-20px p-4 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] space-y-4">
+<!-- Toggle 1: Private Profile -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Private Profile</p>
+<p class="text-[11px] text-on-surface-variant">Only approved followers can see posts</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="h-[1px] bg-outline-variant/20"></div>
+<!-- Toggle 2: Activity Status -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Show Activity Status</p>
+<p class="text-[11px] text-on-surface-variant">Let others see when you're online</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+</form>
+<!-- Save Button (Fixed at bottom or scrolling with content) -->
+<div class="mt-12">
+<button class="w-full h-14 bg-primary-container text-white rounded-20px font-headline-sm flex items-center justify-center gap-2 shadow-lg shadow-primary-container/20 hover:opacity-90 active:scale-[0.98] transition-all duration-200">
+<span>Save Changes</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Contextually relevant for main profile screen, but usually hidden in deep edit screens. Kept as per "Shared Components" instructions for mobile context) -->
+<nav class="fixed bottom-0 left-0 w-full glass-panel border-t border-outline-variant/10 z-50">
+<div class="flex justify-around items-center px-6 py-3 pb-8">
+<button aria-label="Home" class="flex items-center justify-center text-on-surface-variant p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</button>
+<button aria-label="Search" class="flex items-center justify-center text-on-surface-variant p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Add Content" class="flex items-center justify-center text-on-surface-variant p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<button aria-label="Notifications" class="flex items-center justify-center text-on-surface-variant p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<!-- Profile is active -->
+<button aria-label="Profile" class="flex items-center justify-center bg-primary-container/20 text-primary rounded-full p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</div>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple scale effect for input interaction
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Toggle state change visual feedback
+        const toggles = document.querySelectorAll('.peer');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const card = e.target.closest('.flex.items-center.justify-between');
+                if (e.target.checked) {
+                    card.style.opacity = '1';
+                } else {
+                    card.style.opacity = '0.8';
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vibely Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+            color: #1a1c20;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdadc",
+                        "on-primary-fixed": "#120068",
+                        "primary": "#4129e7",
+                        "on-surface-variant": "#464556",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#777588",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-fixed": "#e3dfff",
+                        "secondary": "#ad2d47",
+                        "outline-variant": "#c7c4d9",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c4c0ff",
+                        "secondary-container": "#fd6a80",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f0f7",
+                        "on-primary-fixed-variant": "#340edd",
+                        "on-background": "#1a1c20",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "tertiary": "#505355",
+                        "surface-variant": "#e2e2e9",
+                        "on-surface": "#1a1c20",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed-dim": "#c5c6c9",
+                        "surface-container-highest": "#e2e2e9",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2e3036",
+                        "on-error": "#ffffff",
+                        "primary-container": "#5b4bff",
+                        "tertiary-container": "#686b6e",
+                        "on-primary-container": "#ede9ff",
+                        "on-secondary-fixed-variant": "#8c1231",
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#e1e2e5",
+                        "secondary-fixed-dim": "#ffb2b9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ebecef",
+                        "surface-container": "#ededf4",
+                        "on-secondary-fixed": "#400010",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-tint": "#4e3bf3",
+                        "on-secondary-container": "#6c0020",
+                        "surface-dim": "#d9d9e0",
+                        "surface-container-high": "#e8e7ef",
+                        "surface-container-low": "#f3f3fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- Top AppBar (Mobile Optimized) -->
+<header class="bg-white/70 dark:bg-surface/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center w-full px-margin-mobile py-4">
+<h1 class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tight text-primary">Vibely</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container/20 active:scale-95 transition-transform duration-200">
+<img class="w-full h-full object-cover" data-alt="A sophisticated close-up portrait of a professional woman with a warm smile, set against a blurred, high-end office background with soft bokeh lighting. The aesthetic is clean and modern, featuring a palette of soft whites and cool periwinkles, reflecting a premium social networking environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUlcNbCLlFwJpzlIpFEcYnBCORYdtBZhtW7c_hQJOlABj7FsZYrEynYaeDKxFTKqpLlbI5w--WcyTvL8R3H-3HeQ7DDuHRX4CAKYUvLXBKq5x1-z1LIypCOK_I4GskZLaIP3JVcoDjMwjCVf1WAucXz6NjcdJGoscfigmUaJ0FkN2Ns_HtLToAH8gvrt6Z4Z0tHINSBALGzLLuKCZdpaV2kbYFZPQXuoJZQNwhbD129PhpWDO2QdheyabuYlyMafelNgXSAouMcI2"/>
+</div>
+</div>
+</header>
+<main class="pb-24 pt-4 px-margin-mobile max-w-md mx-auto">
+<!-- Search Input -->
+<section class="mb-8">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-2xl font-body-md text-on-surface focus:ring-2 focus:ring-primary-container transition-all placeholder:text-outline/60" placeholder="Search vibes, people, or tags..." type="text"/>
+</div>
+</section>
+<!-- Recent Searches -->
+<section class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent Searches</h2>
+<button class="font-label-md text-label-md text-primary transition-opacity hover:opacity-70">Clear all</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Search Chip 1 -->
+<div class="flex items-center bg-white border border-outline-variant/30 px-3 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+<span class="font-label-md text-label-md mr-2">Digital Minimalism</span>
+<button class="flex items-center justify-center w-5 h-5 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Search Chip 2 -->
+<div class="flex items-center bg-white border border-outline-variant/30 px-3 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+<span class="font-label-md text-label-md mr-2">@elara_design</span>
+<button class="flex items-center justify-center w-5 h-5 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Search Chip 3 -->
+<div class="flex items-center bg-white border border-outline-variant/30 px-3 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+<span class="font-label-md text-label-md mr-2">Future Tech 2026</span>
+<button class="flex items-center justify-center w-5 h-5 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Suggested Creators -->
+<section class="mb-10">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6">Suggested Creators</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-6 -mx-margin-mobile px-margin-mobile pb-4">
+<!-- Creator 1 -->
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="relative w-20 h-20 mb-2">
+<div class="absolute inset-0 rounded-full border-2 border-primary-container p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A stylish young man wearing premium designer glasses and a minimalist ivory turtleneck. He is sitting in a sun-drenched architectural space with clean lines. The lighting is bright and airy, with soft shadows, embodying a forward-luxury lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNupKC9cIFUCfjreM3_OB5eSPSILDoLrE1wPWFTi2nxJ2fms9WEkFMW-WS1nfqhe1g0L_2RtvLqnr9V2sAleyYTq3rR0eEe-0RSfZxl5A1npKV_PgSoZ16xWswotKP3S1nwb9EQ-DdoP6o6MEYYgbExhafOxRMUK0r9t_vf2EeI07Dwey-ui7ivi6AnpNc397qz93LaR-wZoXnE2drpZcuDFVZc3oQbbUKJu4ugJpvKVTFkxPIM75HTynKeoBv2OjrfXfYSYVFi_jH"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px]" data-icon="add" style="font-variation-settings: 'wght' 700">add</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center truncate w-full">Julian Voss</span>
+</div>
+<!-- Creator 2 -->
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="relative w-20 h-20 mb-2">
+<div class="absolute inset-0 rounded-full border-2 border-primary-container/20 p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of a creative director with a sleek hairstyle, wearing a charcoal architectural blazer. The background is a clean, minimal studio with a periwinkle glow. High-key lighting highlights the polished, modern professional vibe of the Vibely platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDORRpnRnEdgdKqVBp2DCpoZUpCMcJto2ltIIazf-oP6AbXaQ3kCtpJbEeQBnNdp75MJ6EyYTPK7wF0nuN6-XeVYMqxvE8ZldpMBYYz1GQCd13pymySuUH9e-jALlwYsvT48W6x-37WRGhDLdRMq_5bz7unANQqZ72SE_HjgRzqNnPA6-6NmDbrKVAooEVN4E1ERjLoXiybbsDWcjaN0VU-wpWcP1wsY4xIVNOLeBIJzVPPIhqf03Ux6Xzi0-O1kg-FIn0eg1nJ2lot"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center truncate w-full">Mika Chen</span>
+</div>
+<!-- Creator 3 -->
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="relative w-20 h-20 mb-2">
+<div class="absolute inset-0 rounded-full border-2 border-primary-container/20 p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A vibrant lifestyle shot of a woman with a confident expression, dressed in a minimalist sage green outfit. She is standing against a pristine white concrete wall with soft, natural morning light. The image has a calm, exclusive, and technologically advanced atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcnbOjCsGb8VOD0nXIqgJCvFFltDDVS4vxksluKeOoPAf87YzVlFDoUsOt4Db5DAvjwoFH682mPbuEd7-xilYmlKJoxTL4WrWyVpefDg6vpdD6xxGHHGG9V47W9kEOF-j3RcI0-4KPOvR16beq7PYNxNn2Cv3G0mIKmqvYsOkXXNeEhAKEY3jMtXCPCOVcAIsqQxZOxfAJZbwoFnjmG_IvSEmrPBEWBqeMqPahAFXeRBhi747UmXWtK4W_El3RLxp564AsleGQLCYC"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center truncate w-full">Aria Sol</span>
+</div>
+<!-- Creator 4 -->
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="relative w-20 h-20 mb-2">
+<div class="absolute inset-0 rounded-full border-2 border-primary-container/20 p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of a man in his late 20s, featuring a sharp profile and a minimalist tech-wear aesthetic. He is illuminated by a subtle blue rim light that evokes a forward-thinking, 2026 digital landscape. The overall mood is precise, premium, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXQApZ_iWQEJhO0fTlvv3flSp6_YKk9OQIwbRMfW1V7BRBKYW52jqWdm4Y85Xked9f5yMzZUhCUlLW_7ifaSf1JnzOVyeKLwao_amx8_oLDYXLse3cVuUnwfKlgN-BH6ZGdnQbuXhRcUsLtpAQ5JH7ENUJ21MaeoN_a2H-d8q6HmCNUtMihhHA8K0cvXsAQp481N9JJov9F7g_VONCNOED6nn_GGOse4OHa60hsYpprurXONseFpAEtRyDLpvz9G6z2YGP4gz3Rj8O"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center truncate w-full">Leo Gray</span>
+</div>
+</div>
+</section>
+<!-- Trending Now -->
+<section class="mb-8">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6">Trending Now</h2>
+<div class="space-y-2">
+<!-- Trending Item 1 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary mb-0.5">#GenerativeArt</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24.5k vibes today</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Trending Item 2 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary mb-0.5">#Minimalism2026</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">12.8k vibes today</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Trending Item 3 -->
+<div class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary mb-0.5">#SolanaEcosystem</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">8.2k vibes today</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 py-3 pb-safe bg-white/70 dark:bg-surface/70 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] z-50">
+<!-- Home -->
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all rounded-full active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</a>
+<!-- Search (Active) -->
+<a class="flex items-center justify-center bg-primary-container/20 dark:bg-primary-container/40 text-primary dark:text-primary-fixed rounded-full p-3 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1">search</span>
+</a>
+<!-- Add -->
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all rounded-full active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<!-- Notifications -->
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all rounded-full active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-variant/50 transition-all rounded-full active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for list item animations
+        document.querySelectorAll('.active\\:scale-\\[0\\.98\\]').forEach(item => {
+            item.addEventListener('touchstart', function() {
+                this.classList.add('scale-[0.98]');
+            });
+            item.addEventListener('touchend', function() {
+                this.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Search Input Focus Effect
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+            searchInput.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+</body></html>
