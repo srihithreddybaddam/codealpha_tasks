@@ -1,4 +1,4 @@
-# ⚡ AETHERIA — Production-Ready Indian Grocery Marketplace
+# ⚡ BASKETLY — Production-Ready Indian Grocery Marketplace
 
 > **CodeAlpha Full-Stack Engineering Internship Submission**  
 > A state-of-the-art, high-performance E-Commerce platform built with React, Node.js, Express, MongoDB, and Tailwind CSS. Designed specifically for modern hyperlocal grocery and lifestyle commerce in India.
