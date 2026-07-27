@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Hide scrollbar completely while maintaining smooth scrolling */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Custom Reusable Utility Classes & Animations */
+@layer components {
+  /* Card Base */
+  .aetheria-card {
+    @apply bg-white dark:bg-brand-darkCard rounded-[18px] border border-slate-100 dark:border-slate-800 shadow-soft hover:shadow-floating transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  /* Glassmorphism Card */
+  .aetheria-glass-card {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/50 rounded-[18px] shadow-lg;
+  }
+
+  /* Ripple Hover Button Base */
+  .btn-gradient-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 text-white font-semibold rounded-full px-6 py-3 shadow-md hover:shadow-glow transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-gradient-secondary {
+    @apply relative overflow-hidden bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-white font-semibold rounded-full px-6 py-3 shadow-md hover:shadow-glow transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-indigo-500/30 dark:border-indigo-400/30 text-indigo-600 dark:text-indigo-400 font-semibold rounded-full px-6 py-3 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  /* Ripple Effect Simulation */
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .ripple-effect:hover::after {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

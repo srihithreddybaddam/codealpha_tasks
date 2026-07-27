@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="basketlyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#32D583" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#basketlyGrad)" />
+  <path d="M6 10h12l-1.5 8h-9L6 10z" fill="#ffffff" stroke="none" />
+  <path d="M9 10V7a3 3 0 0 1 6 0v3" stroke="#ffffff" stroke-width="2" fill="none" />
+</svg>
